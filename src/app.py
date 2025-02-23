@@ -12,13 +12,13 @@ def add_new_todo():
     request_body = request.json
     todos.append(request_body)
     print("Incoming request with the following body", request_body)
-    return jsonify(todos)
+    return jsonify(todos), 200
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
     del todos[position]
     print("This is the position to delete:", position)
-    return jsonify(todos)
+    return jsonify(todos), 200
 
 # These two lines should always be at the end of your app.py file
 if __name__ == '__main__':
